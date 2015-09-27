@@ -2,7 +2,7 @@
 
 Much like [sacha:spin](https://atmospherejs.com/sacha/spin), this package is a wrapper for [Spin.js](https://github.com/fgnass/spin.js). While [sacha:spin](https://atmospherejs.com/sacha/spin) is useful in many contexts, the fact that it works throgh Blaze can be annoying. Having to add helpers to conditionally render the `spinner` template isn't so fun, plus if you use something like React instead of Blaze, you simply can't use [sacha:spin](https://atmospherejs.com/sacha/spin) at all.
 
-One thing [sacha:spin](https://atmospherejs.com/sacha/spin) is particularly useful for is as a loading template for [iron:router](https://atmospherejs.com/iron/router) routs, and this package isn't meant to replace it in that context. However, in cases where you want a loading indicator while a method runs, or while waiting for some other asynchronous function to resolve, [xyz:loading](https://atmospherejs.com/xyz/loading) makes it super simple.
+One thing [sacha:spin](https://atmospherejs.com/sacha/spin) is particularly useful for is as a loading template for [iron:router](https://atmospherejs.com/iron/router) routes, and this package isn't meant to replace it in that context. However, in cases where you want a loading indicator while a method runs, or while waiting for some other asynchronous function to resolve, [xyz:loading](https://atmospherejs.com/xyz/loading) makes it super simple.
 
 ## Example
 ````javascript
@@ -53,10 +53,16 @@ Loading.halt();
 // you want to run the spinner over.
 Loading.configure({ speed: 2, direction: -1, elementSelector: '#someId'});
 
-// If you want multiple spinners on diffrent elements, use Loading.refresh with a truthy third
-// argument to get a referance to a new loading spinner that does not override the global spinner.
-// In such a case you almost always want to configure the spinner with position: 'relative'.
-const NewLoading = Loading.refresh(true, {elementSelector: '#someId', position: 'relative'}, true);
+// If you want to show multiple spinners on diffrent elements, use
+// Loading.refresh with a truthy third argument to get a referance 
+// to a new loading spinner that does not override the global spinner.
+// In such a case you almost always want to configure the spinner
+// with position: 'relative'.
+const NewLoading = Loading.refresh(
+  true, 
+  { elementSelector: '#someId', position: 'relative' },
+  true
+);
 
 // The Loading.clone method is an alias for this use-case. It sets the position: 'relative'
 // option by default, though you can override it if you really want.
