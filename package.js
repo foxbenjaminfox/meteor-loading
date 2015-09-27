@@ -1,6 +1,6 @@
 Package.describe({
   name: 'xyz:loading',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'A spinner that spins while your stuff loads',
   git: 'https://github.com/foxbenjaminfox/meteor-loading',
   documentation: 'README.md'
