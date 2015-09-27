@@ -65,3 +65,6 @@ const NewLoading2 = Loading.clone({elementSelector: '#someId'});
 // You can then use these new objects just like you would any other.
 wrappedAsyncFunction = NewLoading.wrapAsync(someAsyncFunction);
 ````
+
+## Tests
+[xyz:loading](https://atmospherejs.com/xyz/loading) has a test suite that uses tiny test. You can run the tinytest test suites of your site's packages using the `meteor test-packages` command.
