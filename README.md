@@ -1,12 +1,12 @@
 # [xyz:loading](https://atmospherejs.com/xyz/loading) ![Build Status](https://travis-ci.org/foxbenjaminfox/meteor-loading.svg?branch=master)
 
-Much like [sacha:spin](https://atmospherejs.com/sacha/spin), this package is a wrapper for [Spin.js](https://github.com/fgnass/spin.js). While [sacha:spin](https://atmospherejs.com/sacha/spin) is useful in many contexts, the fact that it works throgh Blaze can be annoying. Having to add helpers to conditionally render the `spinner` template isn't so fun, plus if you use something like React instead of Blaze, you can't use [sacha:spin](https://atmospherejs.com/sacha/spin).
+Much like [sacha:spin](https://atmospherejs.com/sacha/spin), this package is a wrapper for [Spin.js](https://github.com/fgnass/spin.js). While [sacha:spin](https://atmospherejs.com/sacha/spin) is useful in many contexts, the fact that it works throgh Blaze can be annoying. Having to add helpers to conditionally render the `spinner` template isn't so fun, plus if you use something like React instead of Blaze, you simply can't use [sacha:spin](https://atmospherejs.com/sacha/spin) at all.
 
-[sacha:spin](https://atmospherejs.com/sacha/spin) is particularly useful as a loading template for [iron:router](https://atmospherejs.com/iron/router), and this package isn't meant to replace it in that context. However, in cases where you want a loading indicator while a method runs, or while waiting for some other asynchronous function to resolve, [xyz:loading](https://atmospherejs.com/xyz/loading) makes it super simple.
+One thing [sacha:spin](https://atmospherejs.com/sacha/spin) is particularly useful for is as a loading template for [iron:router](https://atmospherejs.com/iron/router) routs, and this package isn't meant to replace it in that context. However, in cases where you want a loading indicator while a method runs, or while waiting for some other asynchronous function to resolve, [xyz:loading](https://atmospherejs.com/xyz/loading) makes it super simple.
 
 ## Example
 ````javascript
-// someAsyncFunction is some asynchronous function.
+// Let's assume that we have some asynchronous function called someAsyncFunction.
 
 // Just like with Meteor.wrapAsync
 let wrappedAsyncFunction = Loading.wrapAsync(someAsyncFunction);
@@ -67,4 +67,4 @@ wrappedAsyncFunction = NewLoading.wrapAsync(someAsyncFunction);
 ````
 
 ## Tests
-[xyz:loading](https://atmospherejs.com/xyz/loading) has a test suite that uses tiny test. You can run the tinytest test suites of your site's packages using the `meteor test-packages` command.
+[xyz:loading](https://atmospherejs.com/xyz/loading) has a tinytest test suite. You can run your site's packages' tests using the `meteor test-packages` command.
