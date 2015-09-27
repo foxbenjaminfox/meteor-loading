@@ -1,4 +1,4 @@
-#[xyz:loading](https://atmospherejs.com/xyz/loading) ![Build Status](https://travis-ci.org/foxbenjaminfox/meteor-loading.svg?branch=master)
+# [xyz:loading](https://atmospherejs.com/xyz/loading) ![Build Status](https://travis-ci.org/foxbenjaminfox/meteor-loading.svg?branch=master)
 
 Much like [sacha:spin](https://atmospherejs.com/sacha/spin), this package is a wrapper for [Spin.js](https://github.com/fgnass/spin.js). While [sacha:spin](https://atmospherejs.com/sacha/spin) is useful in many contexts, the fact that it works throgh Blaze can be annoying. Having to add helpers to conditionally render the `spinner` template isn't so fun, plus if you use something like React instead of Blaze, you can't use [sacha:spin](https://atmospherejs.com/sacha/spin).
 
