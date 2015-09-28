@@ -28,6 +28,7 @@ if (Meteor.isClient) {
 
   Tinytest.addAsync('wrap an async function', function (test, done) {
     const context = {}, result = "result";
+    let callbackCalled = false;
 
     function asyncSomething(cb) {
       test.equal(this, context, "The right context should be passed");
@@ -46,12 +47,15 @@ if (Meteor.isClient) {
       test.equal(this, context, "The right context should be passed");
 
       noSpinner(test);
+
+      callbackCalled = true;
     });
 
     isSpinner(test);
 
     Meteor.setTimeout(function() {
       noSpinner(test);
+      test.isTrue(callbackCalled, "The callback must be called when the function is done");
       done();
     }, 210);
   });
