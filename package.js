@@ -19,8 +19,12 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
+  api.use('es5-shim');
   api.use('xyz:loading');
-  api.addFiles('loading-tests.js');
+  api.addFiles([
+    'tests/polyfill.js',
+    'tests/test.js'
+  ], 'client');
 });
 
 Npm.depends({
