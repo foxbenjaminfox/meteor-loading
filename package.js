@@ -1,6 +1,6 @@
 Package.describe({
   name: 'xyz:loading',
-  version: '1.0.4',
+  version: '1.1.0',
   summary: 'A spinner that spins while your stuff loads',
   git: 'https://github.com/foxbenjaminfox/meteor-loading',
   documentation: 'README.md'
@@ -21,6 +21,7 @@ Package.onTest(function(api) {
   api.use('tinytest');
   api.use('es5-shim');
   api.use('xyz:loading');
+  api.addFiles('tests/helpers.js', 'server');
   api.addFiles([
     'tests/polyfill.js',
     'tests/test.js'

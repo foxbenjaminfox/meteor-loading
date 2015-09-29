@@ -102,8 +102,18 @@ function refreshLoading(userOptions) {
       return this;
     },
     clone (newOpts) {
-      const opts = Object.assign({position: 'relative'}, newOpts);
+      const opts = Object.assign({ position: 'relative' }, newOpts);
       return this.refresh(true, opts, true);
+    },
+    call (...args) {
+      const name = args[0],
+            callback = args[args.length - 1],
+            methodArgs = args.slice(1, -1);
+      return this.apply(name, methodArgs, {}, callback);
+    },
+    apply (...args) {
+      const callback = args.pop();
+      return this.wrapAsync(Meteor.apply.bind(Meteor, ...args), Meteor)(callback);
     }
   };
 };

@@ -8,7 +8,7 @@ One thing [sacha:spin](https://atmospherejs.com/sacha/spin) is particularly usef
 ````javascript
 // Let's assume that we have some asynchronous function called someAsyncFunction.
 
-// Just like with Meteor.wrapAsync
+// Just like with Meteor.wrapAsync, we can write:
 let wrappedAsyncFunction = Loading.wrapAsync(someAsyncFunction);
 
 // Now wrappedAsyncFunction behaves just like someAsyncFunction,
@@ -16,6 +16,19 @@ let wrappedAsyncFunction = Loading.wrapAsync(someAsyncFunction);
 wrappedAsyncFunction(function (err, res) {
   // ...
 });
+
+// Likewise, Meteor methods can be called with like this:
+Loading.call("someMethod", arg, anotherArg, moreArgs, function (err, res){
+  // ...
+});
+
+// Or like this:
+Loading.apply("someMethod", args, options, function (err, res) {
+  // ...
+});
+
+// In both cases, the method is called in exactly the way it would had you used
+// Meteor.call or Meteor.apply, just with a loading spinner until the method is finished.
 
 // You can configure the spinner. The new options will take effect
 // the next time the spinner starts.

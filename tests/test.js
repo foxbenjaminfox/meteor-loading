@@ -64,8 +64,8 @@ Tinytest.addAsync('wrap a method', function (test, done) {
 
   noSpinner(test);
 
-  Loading.call("addnums", 1, 2, 3, function (err, res) {
-    test.isNull(err, "there should't be an error");
+  Loading.call("addThreeNumbers", 1, 2, 3, function (err, res) {
+    test.isFalse(!!err, "there should't be an error");
     test.equal(res, 6, "The result should be correct");
 
     noSpinner(test);
@@ -79,7 +79,7 @@ Tinytest.addAsync('wrap a method', function (test, done) {
     noSpinner(test);
     test.isTrue(callbackCalled, "The callback must be called when the function is done");
     done();
-  }, 210);
+  }, 110);
 });
 
 
