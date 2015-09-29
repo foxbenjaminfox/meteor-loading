@@ -28,7 +28,7 @@ function refreshLoading(userOptions) {
           , elementSelector: 'body' // A selector for the target of
         });
 
-  Object.assign(options, userOptions);
+  _.extend(options, userOptions);
 
   return {
     options,
@@ -77,15 +77,14 @@ function refreshLoading(userOptions) {
       return this;
     },
     refresh (keepOptions, newOptions, noOverrideGlobal) {
-      const opts = {};
-      let inherited;
+      let opts;
 
       if (keepOptions) {
-        inherited = this.options;
+        opts = _.clone(this.options);
       } else {
-        inherited = {};
+        opts = {};
       }
-      Object.assign(opts, inherited, newOptions);
+      _.extend(opts, newOptions);
 
       const newLoading = refreshLoading(opts);
 
@@ -98,11 +97,11 @@ function refreshLoading(userOptions) {
       return newLoading;
     },
     configure (opts) {
-      Object.assign(this.options, opts);
+      _.extend(this.options, opts);
       return this;
     },
     clone (newOpts) {
-      const opts = Object.assign({ position: 'relative' }, newOpts);
+      const opts = _.extend({ position: 'relative' }, newOpts);
       return this.refresh(true, opts, true);
     },
     call (...args) {

@@ -9,7 +9,10 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.1');
   api.export('Loading', 'client')
-  api.use('ecmascript');
+  api.use([
+    'ecmascript',
+    'underscore'
+  ]);
   api.addFiles([
     '.npm/package/node_modules/spin.js/spin.js',
     'loading.js'
@@ -22,10 +25,7 @@ Package.onTest(function(api) {
   api.use('es5-shim');
   api.use('xyz:loading');
   api.addFiles('tests/helpers.js', 'server');
-  api.addFiles([
-    'tests/polyfill.js',
-    'tests/test.js'
-  ], 'client');
+  api.addFiles('tests/test.js', 'client');
 });
 
 Npm.depends({
