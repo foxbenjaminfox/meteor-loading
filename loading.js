@@ -87,11 +87,11 @@ function refreshLoading(userOptions) {
       }
       Object.assign(opts, inherited, newOptions);
 
-      this.halt();
-
       const newLoading = refreshLoading(opts);
 
       if (!noOverrideGlobal) {
+        this.halt();
+
         // `window.Loading` is an exported global
         window.Loading = newLoading;
       }
