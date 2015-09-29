@@ -52,12 +52,36 @@ Tinytest.addAsync('wrap an async function', function (test, done) {
 
   isSpinner(test);
 
-  Meteor.setTimeout(function() {
+  Meteor.setTimeout(function () {
     noSpinner(test);
     test.isTrue(callbackCalled, "The callback must be called when the function is done");
     done();
   }, 210);
 });
+
+Tinytest.addAsync('wrap a method', function (test, done) {
+  let callbackCalled = false;
+
+  noSpinner(test);
+
+  Loading.call("addnums", 1, 2, 3, function (err, res) {
+    test.isNull(err, "there should't be an error");
+    test.equal(res, 6, "The result should be correct");
+
+    noSpinner(test);
+
+    callbackCalled = true;
+  });
+  
+  isSpinner(test);
+
+  Meteor.setTimeout(function () {
+    noSpinner(test);
+    test.isTrue(callbackCalled, "The callback must be called when the function is done");
+    done();
+  }, 210);
+});
+
 
 function noSpinner(test) {
   test.isNull(document.querySelector('div.spinner'), "spinner should not exist");
