@@ -1,4 +1,6 @@
-Loading = refreshLoading();
+import Spinner from 'spin.js'
+
+export let Loading = refreshLoading();
 
 function refreshLoading(userOptions) {
   let running = 0;
@@ -91,8 +93,7 @@ function refreshLoading(userOptions) {
       if (!noOverrideGlobal) {
         this.halt();
 
-        // `window.Loading` is an exported global
-        window.Loading = newLoading;
+        Loading = newLoading;
       }
       return newLoading;
     },

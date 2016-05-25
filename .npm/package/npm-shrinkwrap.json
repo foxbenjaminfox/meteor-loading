@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "spin.js": {
-      "version": "2.3.2"
+      "version": "2.3.2",
+      "resolved": "https://registry.npmjs.org/spin.js/-/spin.js-2.3.2.tgz",
+      "from": "spin.js@2.3.2"
     }
   }
 }
